@@ -1,4 +1,4 @@
-class TopcisController < ApplicationController
+class TopicsController < ApplicationController
 
   def index
     @topics = Topic.all
@@ -8,6 +8,7 @@ class TopcisController < ApplicationController
   end
 
   def show
+    @topic = Topic.find(params[:id])
   end
 
   def edit

@@ -4,6 +4,8 @@ class IncomingController < ApplicationController
 
   def create
 
+    Rails.logger.info params
+    
     head 200
   end
 

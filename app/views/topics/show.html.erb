@@ -1,8 +1,8 @@
 <h1><%= @topic.title %></h1>
 
 <h2>Bookmarks</h2>
-    <div class='js-bookmarks'>
-      <%= render partial: 'bookmarks/bookmark', collection: @bookmark %>
+    <div class='bookmarks'>
+      <%= render :partial => @topic.bookmarks %>
     </div>
 
 <%= link_to "Edit", edit_topic_path(@topic), class: 'btn btn-success' %>

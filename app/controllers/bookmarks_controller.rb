@@ -1,11 +1,11 @@
 class BookmarksController < ApplicationController
   def show
-    @bookmark = Bookmark.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
+    @bookmark = @topic.bookmarks.find(params[:id])
   end
 
   def new
     @topic = Topic.find(params[:topic_id])
-
     @bookmark = Bookmark.new
   end
 
@@ -34,4 +34,17 @@ class BookmarksController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @topic = Topic.find(params[:topic_id])
+    @bookmark = @topic.bookmarks.find(params[:id])
+
+    if @bookmark.destroy
+      flash[:notice] = "Bookmark was removed."
+    else
+      flash[:error]  = "Bookmark couldn't be deleted. Try again."
+    end
+    redirect_to @topic
+  end
+
 end

@@ -1,4 +1,4 @@
 <div class="media-body">
       
     <p><%= bookmark.url %></p>
-  </div>
+    <small><%= link_to "Delete", [ @topic, bookmark], method: :delete %></small>

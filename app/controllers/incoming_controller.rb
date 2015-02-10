@@ -4,8 +4,14 @@ class IncomingController < ApplicationController
 
   def create
 
-    Rails.logger.info params
+    @user = User.find_by_email(params[:sender])
+    @topic = Topic.find_by_subject(params[:subject])
+    @url = params["body-plain"]
+
+
+    @bookmark= Bookmark.create(url: @url)
     
+
     head 200
   end
 

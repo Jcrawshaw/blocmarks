@@ -9,8 +9,8 @@ class IncomingController < ApplicationController
     # todo: if @user.nil? then create a new user
     @topic = Topic.find_by_title(params[:subject])
     # todo: unless @topic, create the topic
-    @url = params["body-plain"]
-
+    @url = params["body-plain"].split("\n").first
+    # todo: be smarter about finding the url
 
     @bookmark= Bookmark.new(url: @url)
     #@bookmark= @topic.bookmarks.build(url: @url)

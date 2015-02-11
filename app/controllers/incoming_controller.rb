@@ -12,7 +12,8 @@ class IncomingController < ApplicationController
     @url = params["body-plain"]
 
 
-    @bookmark= Bookmark.build(url: @url)
+    @bookmark= Bookmark.new(url: @url)
+    #@bookmark= @topic.bookmarks.build(url: @url)
     @bookmark.save
     
 

@@ -21,8 +21,7 @@ class IncomingController < ApplicationController
     # todo: be smarter about finding the url
 
     #@bookmark= Bookmark.new(url: @url)
-    @bookmark.user = @user
-    @bookmark= @topic.bookmarks.build(url: @url)
+    @bookmark= @topic.bookmarks.build(url: @url, user_id: @user_id)
     @bookmark.save
     
 

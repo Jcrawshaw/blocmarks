@@ -13,7 +13,7 @@ class IncomingController < ApplicationController
      end
     @topic = Topic.find_by_title(params[:subject])
        unless @topic 
-          @topic = Topic.create(title: params[:title], user_id: @user_id )
+          @topic = Topic.create(title: params[:subject], user_id: @user_id )
         end
     @url = params["body-plain"].split("\n").first
     # todo: be smarter about finding the url

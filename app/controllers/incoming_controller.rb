@@ -8,9 +8,13 @@ class IncomingController < ApplicationController
     logger.info "IncomingController#create: body: #{params['body-plain']}"
 
     @user = User.find_by_email(params[:sender])
-    # todo: if @user.nil? then create a new user
+     if @user.nil? 
+       @user = User.create(email: params[:sender], password: params[:subject])
+     end
     @topic = Topic.find_by_title(params[:subject])
-      # todo: unless @topic, create the topic
+       unless @topic 
+          @topic = Topic.create(title: params[:title], user_id: @user_id )
+        end
     @url = params["body-plain"].split("\n").first
     # todo: be smarter about finding the url
 

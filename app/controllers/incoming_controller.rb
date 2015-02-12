@@ -14,11 +14,14 @@ class IncomingController < ApplicationController
     @topic = Topic.find_by_title(params[:subject])
        unless @topic 
           @topic = Topic.create(title: params[:subject], user_id: @user_id )
+          @topic = Topic.new(params.require(:topic).permit(:title))
+          @topic.save
         end
     @url = params["body-plain"].split("\n").first
     # todo: be smarter about finding the url
 
     #@bookmark= Bookmark.new(url: @url)
+    @bookmark.user = @user
     @bookmark= @topic.bookmarks.build(url: @url)
     @bookmark.save
     

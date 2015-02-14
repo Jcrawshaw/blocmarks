@@ -1,5 +1,6 @@
 <div class="media-body">
       
-    <p><%= bookmark.url %></p>
+    <p><%= link_to "{@bookmark.url}" %></p>
    
-      <small><%= link_to "Delete", [ @topic, bookmark], method: :delete %></small>
+      <small><%= link_to "Delete", [@topic, bookmark], method: :delete %></small>
+      <%= render partial: 'likes/like', locals: {bookmark: @bookmark} %>

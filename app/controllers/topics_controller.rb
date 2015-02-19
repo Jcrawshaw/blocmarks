@@ -21,6 +21,8 @@ class TopicsController < ApplicationController
 
   def show
     @topic = Topic.find(params[:id])
+    logger.debug @bookmarks.inspect
+     #@bookmark = Bookmark.find(params[:bookmark_id]) 
     @bookmarks = @topic.bookmarks
   end
 

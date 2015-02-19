@@ -13,7 +13,14 @@
     <%= link_to "All Topics", topics_path, class: 'btn btn-primary' %>
   </div>
   <div class="col-md-8">
-    <%= render :partial => @topic.bookmarks %>
+    <% @bookmarks.each do |bookmark| %>
+      <%= render bookmark %>
+    <% end %>
+    
+
     
   </div>
 </div>
+
+
+

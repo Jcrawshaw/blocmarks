@@ -1,2 +1,3 @@
-<h1>Bookmarks#show</h1>
-<p>Find me in app/views/bookmarks/show.html.erb</p>
+<h1>Bookmarks</h1>
+<p><%= @bookmark.url %></p>
+<%= render partial: 'likes/like', locals: { bookmark: @bookmark } %>

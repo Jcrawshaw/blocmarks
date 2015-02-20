@@ -10,12 +10,13 @@ end
     @topic = Topic.find(params[:topic_id])
     @like = current_user.likes.build(bookmark: @bookmark)
 
+    authorize @like
     if @like.save
       flash[:notice] = "Bookmark was Liked!"
-      redirect_to topic_bookmark_path(@topic, @bookmark)
+      redirect_to topic_path(@topic)
     else
       flash[:error] = "Unable to Like Bookmark"
-      redirect_to topic_bookmark_path(@topic, @bookmark)
+      redirect_to topic_path(@topic)
     end
   end
 
@@ -24,6 +25,7 @@ end
     @topic = Topic.find(params[:topic_id])
     @like = current_user.likes.find(params[:id])
 
+    authorize @like
     if @like.destroy
       flash[:notice] = "Bookmark was Un-liked."
       redirect_to topic_bookmark_path(@topic, @bookmark)

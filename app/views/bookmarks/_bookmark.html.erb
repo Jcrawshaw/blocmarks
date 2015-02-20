@@ -1,8 +1,11 @@
 <div class="media-body">
      <div class="col-md-8"> 
         <p><%= link_to bookmark.url, bookmark.url %></p>
-   
-        <small><%= link_to "Delete", [@topic, bookmark], method: :delete %></small>
+        
+        <% if policy(bookmark).destroy? %>
+        <small><%= link_to "Delete Bookmark", [@topic, bookmark], method: :delete %></small>
+        <% end %>
+
         <%= render partial: 'likes/like', locals: {bookmark: bookmark} %>
       </div> 
   </div>

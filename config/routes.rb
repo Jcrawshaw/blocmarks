@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/show'
+
   # get 'bookmarks/show'
 
   # get 'bookmarks/new'
@@ -6,6 +8,8 @@ Rails.application.routes.draw do
   # get 'bookmarks/edit'
 
   devise_for :users
+  resources :users, only: [:show]
+  
   resources :topics do
     resources :bookmarks, except: [:index] do
       resources :likes, only: [:create, :destroy]

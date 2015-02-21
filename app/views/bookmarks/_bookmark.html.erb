@@ -1,9 +1,10 @@
+<% liked_bookmark ||= nil %>
 <div class="media-body">
      <div class="col-md-8"> 
         <p><%= link_to bookmark.url, bookmark.url %></p>
         
         <% if policy(bookmark).destroy? %>
-        <small><%= link_to "Delete Bookmark", [@topic, bookmark], method: :delete %></small>
+        <small><%= link_to "Delete Bookmark", [bookmark.topic, bookmark], method: :delete %></small>
         <% end %>
 
         <%= render partial: 'likes/like', locals: {bookmark: bookmark} %>

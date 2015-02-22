@@ -11,6 +11,10 @@
     <ul class="nav nav-tabs">
       <li><%= link_to "Home", welcome_index_path %></li>
       <li><%= link_to "About", welcome_about_path %></li>
+      <% if current_user %>
+        <li><%= link_to "My Bookmarks", users_show_path %></li>
+        <li><%= link_to "Browse Topics", topics_path %></li>
+      <% end %>
 
         <div class="pull-right user-info">
           <% if current_user %>

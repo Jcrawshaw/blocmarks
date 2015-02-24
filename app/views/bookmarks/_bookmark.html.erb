@@ -1,6 +1,7 @@
 <% liked_bookmark ||= nil %>
 <div class="media-body">
-     <div class="col-md-8"> 
+     <div class="col-md-8">
+        <%= image_tag bookmark.thumbnail, size: '50' %> 
         <p><%= link_to bookmark.url, bookmark.url %></p>
         
         <% if policy(bookmark).destroy? %>

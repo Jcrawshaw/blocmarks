@@ -1,7 +1,9 @@
 <% liked_bookmark ||= nil %>
-<div class="media-body">
-     <div class="col-md-8">
-        <%= image_tag bookmark.thumbnail, size: '50' %> 
+<div class="container">
+  <div class="row">
+    <div class="col-sm-4">
+      <div class="well">
+        <%= image_tag bookmark.thumbnail, size: '100' %> 
         <p><%= link_to bookmark.url, bookmark.url %></p>
         
         <% if policy(bookmark).destroy? %>
@@ -9,6 +11,8 @@
         <% end %>
 
         <%= render partial: 'likes/like', locals: {bookmark: bookmark} %>
-      </div> 
+      </div>
+    </div>
   </div>
+</div>
           

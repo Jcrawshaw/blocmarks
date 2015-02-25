@@ -15,7 +15,7 @@ class Bookmark < ActiveRecord::Base
   end
 
   def default_thumbnail
-    "http://images.apple.com/home/images/og.jpg?201502111511"
+    "http://365psd.com/images/premium/thumbs/233/vector-bookmark-icon-with-check-mark-glyph-1204364.jpg"
   end
 
   def self.embedly

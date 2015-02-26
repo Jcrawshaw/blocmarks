@@ -1,18 +1,14 @@
 <% liked_bookmark ||= nil %>
-<div class="container">
-  <div class="row">
-    <div class="col-sm-4">
-      <div class="well">
-        <%= image_tag bookmark.thumbnail, size: '100' %> 
-        <p><%= link_to bookmark.url, bookmark.url %></p>
+<div class="col-sm-4">
+  <div class="well">
+    <%= image_tag bookmark.thumbnail, size: '100' %> 
+    <p><%= link_to bookmark.url, bookmark.url %></p>
         
-        <% if policy(bookmark).destroy? %>
-        <small><%= link_to "Delete Bookmark", [bookmark.topic, bookmark], method: :delete %></small>
-        <% end %>
-
-        <%= render partial: 'likes/like', locals: {bookmark: bookmark} %>
-      </div>
-    </div>
+    <% if policy(bookmark).destroy? %>
+      <small><%= link_to "Delete Bookmark", [bookmark.topic, bookmark], method: :delete %></small>
+    <% end %>        
+    <%= render partial: 'likes/like', locals: {bookmark: bookmark} %>
   </div>
 </div>
-          
+
+  

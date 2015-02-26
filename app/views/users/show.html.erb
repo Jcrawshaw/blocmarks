@@ -1,6 +1,14 @@
 <h1>My Bookmarks</h1>
-  <%= render partial: 'bookmarks/bookmark', collection: @bookmarks %>
+<div class="container">
+  <div class="row">
+    <%= render partial: 'bookmarks/bookmark', collection: @bookmarks %>
+  </div>
+</div>
 
 
 <h1>Bookmarks I've Liked</h1>
-  <%= render partial: 'bookmarks/bookmark', collection: @liked_bookmarks %>
+<div class="container">
+  <div class="row">
+    <%= render partial: 'bookmarks/bookmark', collection: @liked_bookmarks %>
+  </div>
+</div>
